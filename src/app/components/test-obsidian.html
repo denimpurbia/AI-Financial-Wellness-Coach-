@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsidian AI Test - Indigo Ledger</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #060B18 0%, #0D0A2E 50%, #060B18 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #E0E8FF;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+        }
+        .header {
+            margin-bottom: 3rem;
+        }
+        .logo {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #7C83FD 0%, #00D9FF 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 40px rgba(0,217,255,0.6);
+            margin-bottom: 1rem;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #7C83FD 0%, #00D9FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        .subtitle {
+            color: #A5B4FC;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0,217,255,0.1);
+            border: 1px solid rgba(0,217,255,0.3);
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #00D9FF;
+            margin-bottom: 3rem;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #00D9FF;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0,217,255,0.8);
+            animation: blink 2s ease-in-out infinite;
+        }
+        .canvas-container {
+            position: relative;
+            display: inline-block;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(13,10,46,0.82) 0%, rgba(6,11,24,0.9) 100%);
+            border: 1px solid rgba(0,217,255,0.2);
+            border-radius: 24px;
+            backdrop-filter: blur(28px);
+            box-shadow: 0 0 80px rgba(0,217,255,0.15);
+        }
+        .glow-ring {
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(ellipse at 50% 30%, rgba(0,217,255,0.08) 0%, transparent 70%);
+            border-radius: 24px;
+            pointer-events: none;
+            animation: glow-pulse 4s ease-in-out infinite;
+        }
+        canvas {
+            display: block;
+            width: 320px;
+            height: 320px;
+        }
+        .info {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            text-align: left;
+        }
+        .info-card {
+            padding: 1rem;
+            background: rgba(0,6,20,0.7);
+            border: 1px solid rgba(0,217,255,0.15);
+            border-radius: 12px;
+            backdrop-filter: blur(16px);
+        }
+        .info-card h3 {
+            color: #00D9FF;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .info-card p {
+            color: #A5B4FC;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        @keyframes glow-pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">⚡</div>
+            <h1>Obsidian AI</h1>
+            <p class="subtitle">Futuristic Financial Assistant</p>
+            <div class="status">
+                <span class="dot"></span>
+                System Active • Rendering on Canvas 2D
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <div class="glow-ring"></div>
+            <canvas id="robotCanvas"></canvas>
+        </div>
+
+        <div class="info">
+            <div class="info-card">
+                <h3>✨ 3D Holographic Face</h3>
+                <p>Rendered with native Canvas 2D API, featuring metallic-glass skin and neon cyan eyes.</p>
+            </div>
+            <div class="info-card">
+                <h3>🎙️ Voice Assistant</h3>
+                <p>Speaks in Hinglish with Web Speech API. Friendly, intelligent, and helpful.</p>
+            </div>
+            <div class="info-card">
+                <h3>📱 Fully Responsive</h3>
+                <p>Auto-adapts from mobile (80px) to desktop (320px) with smooth animations.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // This is a placeholder - the actual React component
+        // renders via HolographicRobotFace.tsx
+        const canvas = document.getElementById('robotCanvas');
+        const ctx = canvas.getContext('2d');
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = 320 * dpr;
+        canvas.height = 320 * dpr;
+        ctx.scale(dpr, dpr);
+
+        let frame = 0;
+
+        function drawPlaceholder() {
+            ctx.clearRect(0, 0, 320, 320);
+
+            // Background
+            const bg = ctx.createRadialGradient(160, 160, 0, 160, 160, 160);
+            bg.addColorStop(0, 'rgba(0,217,255,0.1)');
+            bg.addColorStop(1, 'transparent');
+            ctx.fillStyle = bg;
+            ctx.fillRect(0, 0, 320, 320);
+
+            // Head
+            const headGrad = ctx.createRadialGradient(140, 140, 0, 160, 160, 80);
+            headGrad.addColorStop(0, '#1c2d45');
+            headGrad.addColorStop(0.5, '#090e1c');
+            headGrad.addColorStop(1, '#020407');
+            ctx.fillStyle = headGrad;
+            ctx.beginPath();
+            ctx.ellipse(160, 160, 70, 85, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Eyes
+            const eyeGlow = Math.sin(frame * 0.05) * 0.3 + 0.7;
+            ctx.shadowBlur = 20 * eyeGlow;
+            ctx.shadowColor = '#00D9FF';
+            ctx.fillStyle = '#00D9FF';
+            ctx.globalAlpha = eyeGlow;
+            ctx.beginPath();
+            ctx.ellipse(135, 145, 12, 5, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.ellipse(185, 145, 12, 5, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+            ctx.shadowBlur = 0;
+
+            // Mouth
+            ctx.strokeStyle = '#7C83FD';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(140, 190);
+            ctx.quadraticCurveTo(160, 195, 180, 190);
+            ctx.stroke();
+
+            // Text
+            ctx.font = 'bold 14px monospace';
+            ctx.fillStyle = '#00D9FF';
+            ctx.textAlign = 'center';
+            ctx.fillText('React Component', 160, 280);
+            ctx.font = '11px monospace';
+            ctx.fillStyle = '#7C83FD';
+            ctx.fillText('HolographicRobotFace.tsx', 160, 300);
+
+            frame++;
+            requestAnimationFrame(drawPlaceholder);
+        }
+
+        drawPlaceholder();
+    </script>
+</body>
+</html>

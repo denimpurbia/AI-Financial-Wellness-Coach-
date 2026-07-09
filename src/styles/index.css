@@ -1,0 +1,153 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* ════════════════════════════════════════════════════════════════════
+   INDIGO LEDGER — Global Animation & Utility Layer
+════════════════════════════════════════════════════════════════════ */
+
+/* ── Waveform bar pulse ── */
+@keyframes waveform-bar {
+  0%   { transform: scaleY(0.08); }
+  100% { transform: scaleY(1);    }
+}
+
+/* ── Holographic scan line ── */
+@keyframes scan-line {
+  0%   { transform: translateX(-100%); opacity: 0;   }
+  20%  { opacity: 1; }
+  100% { transform: translateX(200%);  opacity: 0;   }
+}
+
+/* ── Message float in ── */
+@keyframes float-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0)     scale(1);   }
+}
+
+/* ── Liquid ripple click effect ── */
+@keyframes liquid-ripple {
+  0%   { transform: translate(-50%,-50%) scale(0); opacity: 0.65; }
+  100% { transform: translate(-50%,-50%) scale(7); opacity: 0;    }
+}
+
+/* ── Orb glow cycle ── */
+@keyframes orb-glow {
+  0%, 100% { box-shadow: 0 0 22px rgba(0,217,255,0.45), 0 0 44px rgba(124,131,253,0.25); }
+  50%       { box-shadow: 0 0 44px rgba(0,217,255,0.75), 0 0 80px rgba(124,131,253,0.45); }
+}
+
+/* ── Cursor blink ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Continuous spin (for HUD rings & orb dashes) ── */
+@keyframes spin {
+  to { transform: translate(-50%,-50%) rotate(360deg); }
+}
+
+/* ── Neon border shimmer ── */
+@keyframes neon-shimmer {
+  0%, 100% { border-color: rgba(0,217,255,0.2); box-shadow: 0 0 8px rgba(0,217,255,0.1); }
+  50%       { border-color: rgba(0,217,255,0.5); box-shadow: 0 0 20px rgba(0,217,255,0.2); }
+}
+
+/* ── Aurora text color flow ── */
+@keyframes aurora-text {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* ── Floating card ── */
+@keyframes float-card {
+  0%, 100% { transform: translateY(0);   }
+  50%       { transform: translateY(-6px); }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   LIQUID GLASS UTILITIES
+════════════════════════════════════════════════════════════════════ */
+.glass-panel {
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  background: linear-gradient(135deg, rgba(0,6,18,0.80) 0%, rgba(10,4,30,0.88) 100%);
+  border: 1px solid rgba(0,217,255,0.14);
+}
+
+.glass-cyan {
+  backdrop-filter: blur(24px);
+  background: linear-gradient(135deg, rgba(0,217,255,0.05) 0%, rgba(0,4,16,0.85) 100%);
+  border: 1px solid rgba(0,217,255,0.22);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   HEX / GRID BACKGROUND PATTERNS
+════════════════════════════════════════════════════════════════════ */
+.hex-grid {
+  background-image:
+    radial-gradient(circle, rgba(0,217,255,0.035) 1px, transparent 1px),
+    radial-gradient(circle, rgba(124,131,253,0.025) 1px, transparent 1px);
+  background-size: 32px 32px, 64px 64px;
+}
+
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(0,217,255,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   CUSTOM SCROLLBARS
+════════════════════════════════════════════════════════════════════ */
+.chat-scroll::-webkit-scrollbar          { width: 3px; }
+.chat-scroll::-webkit-scrollbar-track   { background: transparent; }
+.chat-scroll::-webkit-scrollbar-thumb   { background: rgba(0,217,255,0.18); border-radius: 2px; }
+.chat-scroll::-webkit-scrollbar-thumb:hover { background: rgba(0,217,255,0.35); }
+
+/* ════════════════════════════════════════════════════════════════════
+   JARVIS / HOLOGRAPHIC UI ACCENTS
+════════════════════════════════════════════════════════════════════ */
+.holo-border {
+  border: 1px solid rgba(0,217,255,0.25);
+  box-shadow:
+    0 0 20px rgba(0,217,255,0.06),
+    inset 0 0 30px rgba(0,217,255,0.03);
+}
+
+.neon-glow-cyan {
+  box-shadow: 0 0 15px rgba(0,217,255,0.5), 0 0 30px rgba(0,217,255,0.2);
+}
+
+.neon-glow-violet {
+  box-shadow: 0 0 15px rgba(124,131,253,0.5), 0 0 30px rgba(124,131,253,0.2);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   TILT CARD
+════════════════════════════════════════════════════════════════════ */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   OBSIDIAN AI CHATBOT EXTRAS
+════════════════════════════════════════════════════════════════════ */
+.obsidian-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.obsidian-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../imports/jarvis_lookalike.jpg') center / cover;
+  opacity: 0.18;
+  filter: saturate(1.5) hue-rotate(-10deg);
+  z-index: 0;
+  border-radius: inherit;
+}

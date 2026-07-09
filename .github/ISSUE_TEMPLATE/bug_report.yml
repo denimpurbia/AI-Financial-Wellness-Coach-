@@ -1,0 +1,100 @@
+name: 🐛 Bug Report
+description: Report a bug or issue
+title: "[BUG] "
+labels: ["bug"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! Please fill out the details below.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 📝 Describe the bug
+      description: Clear description of what the bug is
+      placeholder: What went wrong?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 🔄 Steps to reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Go to...
+        2. Click on...
+        3. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: ✅ Expected behavior
+      description: What should happen instead
+      placeholder: Expected behavior...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: ❌ Actual behavior
+      description: What actually happens
+      placeholder: Actual behavior...
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 📸 Screenshots
+      description: Add screenshots if applicable
+      placeholder: Paste images here...
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 🖥️ Environment
+      description: Your system information
+      value: |
+        - OS: [e.g. Windows 11, macOS, Ubuntu]
+        - Python version: [e.g. 3.10]
+        - Node version: [e.g. 18.x]
+        - Browser: [e.g. Chrome, Firefox]
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 📋 Logs or error messages
+      description: Provide error logs if available
+      render: bash
+      placeholder: Paste relevant log output...
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 🎯 Priority
+      description: How urgent is this issue?
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: verification
+    attributes:
+      label: ✋ Verification
+      options:
+        - label: I have searched existing issues
+          required: true
+        - label: I have checked the documentation
+          required: true
+        - label: This issue is reproducible
+          required: true

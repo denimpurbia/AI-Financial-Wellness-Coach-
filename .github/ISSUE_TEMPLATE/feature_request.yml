@@ -1,0 +1,93 @@
+name: 💡 Feature Request
+description: Suggest a new feature or improvement
+title: "[FEATURE] "
+labels: ["enhancement"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting an improvement! Please provide details about your feature request.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 📝 Feature Description
+      description: Clear description of the feature you want
+      placeholder: Describe the feature...
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 🎯 What problem does this solve?
+      description: Explain the current problem or limitation
+      placeholder: Current problem...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: ✨ Proposed solution
+      description: How should this feature work?
+      placeholder: Proposed solution...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 🔄 Alternative approaches
+      description: Other ways to solve this problem
+      placeholder: Alternatives...
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: 📚 Examples or mockups
+      description: Include examples, UI mockups, or code samples
+      placeholder: Add examples here...
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 📍 Feature Area
+      description: Which part of the app?
+      options:
+        - Backend / API
+        - Frontend / UI
+        - Authentication
+        - Data Management
+        - AI Features
+        - Gamification
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 🎯 Priority
+      description: How important is this?
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: verification
+    attributes:
+      label: ✋ Verification
+      options:
+        - label: I have searched existing features
+          required: true
+        - label: This is not a duplicate
+          required: true
+        - label: This aligns with project goals
+          required: false

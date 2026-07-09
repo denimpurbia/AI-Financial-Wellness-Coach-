@@ -1,0 +1,130 @@
+# 🔐 Environment Variables (NEVER COMMIT)
+.env
+.env.local
+.env.*.local
+.env.example.local
+
+# 📦 Node Dependencies
+node_modules/
+npm-debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+pnpm-error.log*
+lerna-debug.log*
+
+# 🐍 Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+ENV/
+env/
+.venv
+venv
+env.bak
+venv.bak
+
+# 🔥 IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.AppleDouble
+.LSOverride
+*.sublime-project
+*.sublime-workspace
+.vim
+.project
+.pydevproject
+.settings/
+*.sublime-workspace
+
+# 📁 Build & Dist
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# 🔗 Supabase
+supabase/.temp/
+supabase/seed.sql
+
+# 📝 Local files
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# 💾 OS
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 🎯 Vite
+.vite/
+
+# 🧪 Test Coverage
+coverage/
+.nyc_output/
+
+# 📦 Lock files (optional - uncomment if you prefer not to commit)
+# package-lock.json
+# pnpm-lock.yaml
+
+# 🚀 Build outputs
+dist/
+build/
+.next/
+out/
+
+# 📊 Database
+*.db
+*.sqlite
+*.sqlite3
+
+# 🔑 Private keys (just in case)
+*.pem
+*.key
+*.pub
+private_key*
+public_key*
+
+# 📱 iOS/Android
+.DS_Store/
+xcuserdata/
+
+# 🐛 Debugging
+.debugger/
+debug.log
+.env
+.env.local
+node_modules
+dist

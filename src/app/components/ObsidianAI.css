@@ -1,0 +1,316 @@
+/* Obsidian AI - Futuristic Robot Face Styles */
+
+/* ═══════════════════════════════════════════════════════════════
+   KEYFRAME ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spin-rev {
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes face-glow {
+  0%, 100% {
+    box-shadow: 0 0 40px rgba(0, 217, 255, 0.18),
+                inset 0 0 60px rgba(0, 217, 255, 0.04);
+  }
+  50% {
+    box-shadow: 0 0 70px rgba(0, 217, 255, 0.32),
+                inset 0 0 80px rgba(124, 131, 253, 0.07);
+  }
+}
+
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes waveform-bar {
+  from {
+    transform: scaleY(0.12);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes orb-glow {
+  0%, 100% {
+    box-shadow: 0 0 18px currentColor, 0 0 8px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 32px currentColor, 0 0 14px currentColor;
+  }
+}
+
+@keyframes breathing {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes blink-eye {
+  0%, 90%, 100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes particle-float {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.2);
+  }
+}
+
+@keyframes hud-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE ROBOT FACE CONTAINER
+   ═══════════════════════════════════════════════════════════════ */
+
+.obsidian-robot-face {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  animation: breathing 4s ease-in-out infinite;
+}
+
+.obsidian-robot-face.speaking {
+  animation: breathing 1.5s ease-in-out infinite;
+}
+
+.obsidian-robot-face.listening {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.obsidian-robot-face.thinking {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE SIZING
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Mobile - Small floating robot */
+@media (max-width: 640px) {
+  .obsidian-robot-face.size-auto {
+    width: 80px;
+    height: 80px;
+  }
+
+  .obsidian-chatbot-popup {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    width: 90vw;
+    max-width: 360px;
+    height: 500px;
+    z-index: 1000;
+  }
+}
+
+/* Tablet - Medium size */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .obsidian-robot-face.size-auto {
+    width: 120px;
+    height: 120px;
+  }
+
+  .obsidian-chatbot-popup {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 400px;
+    height: 600px;
+    z-index: 1000;
+  }
+}
+
+/* Desktop - Large size */
+@media (min-width: 1025px) {
+  .obsidian-robot-face.size-auto {
+    width: 200px;
+    height: 200px;
+  }
+
+  .obsidian-chatbot-popup {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 450px;
+    height: 650px;
+    z-index: 1000;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLASS MORPHISM EFFECTS
+   ═══════════════════════════════════════════════════════════════ */
+
+.glass-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(11, 18, 32, 0.85) 0%,
+    rgba(30, 27, 75, 0.75) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 217, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 6, 20, 0.75) 0%,
+    rgba(0, 217, 255, 0.04) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 217, 255, 0.05);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NEON GLOW EFFECTS
+   ═══════════════════════════════════════════════════════════════ */
+
+.neon-cyan {
+  color: #00d9ff;
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.5),
+               0 0 20px rgba(0, 217, 255, 0.3);
+}
+
+.neon-indigo {
+  color: #7c83fd;
+  text-shadow: 0 0 10px rgba(124, 131, 253, 0.5),
+               0 0 20px rgba(124, 131, 253, 0.3);
+}
+
+.neon-border-cyan {
+  border: 1px solid rgba(0, 217, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.15),
+              inset 0 0 20px rgba(0, 217, 255, 0.05);
+}
+
+.neon-border-indigo {
+  border: 1px solid rgba(124, 131, 253, 0.3);
+  box-shadow: 0 0 20px rgba(124, 131, 253, 0.15),
+              inset 0 0 20px rgba(124, 131, 253, 0.05);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   INTERACTIVE STATES
+   ═══════════════════════════════════════════════════════════════ */
+
+.robot-state-idle {
+  filter: brightness(1);
+}
+
+.robot-state-thinking {
+  filter: brightness(1.1) saturate(1.2);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.robot-state-speaking {
+  filter: brightness(1.15) saturate(1.3);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.robot-state-listening {
+  filter: brightness(1.2) saturate(1.4) hue-rotate(-10deg);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ACCESSIBILITY
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .obsidian-robot-face,
+  .robot-state-idle,
+  .robot-state-thinking,
+  .robot-state-speaking,
+  .robot-state-listening {
+    animation: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBAR STYLING
+   ═══════════════════════════════════════════════════════════════ */
+
+.chat-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 217, 255, 0.03);
+  border-radius: 3px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 217, 255, 0.15);
+  border-radius: 3px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 217, 255, 0.25);
+}
